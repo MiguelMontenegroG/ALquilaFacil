@@ -1,4 +1,4 @@
-package objetos;
+package co.edu.uniquindio.pagaFacil.objetos;
 import java.util.ArrayList;
 import java.util.List;
 

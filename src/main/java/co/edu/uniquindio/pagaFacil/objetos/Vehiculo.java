@@ -1,4 +1,4 @@
-package objetos;
+package co.edu.uniquindio.pagaFacil.objetos;
 
 public class Vehiculo {
     private String placa;
