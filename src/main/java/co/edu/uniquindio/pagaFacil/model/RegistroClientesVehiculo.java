@@ -1,6 +1,12 @@
-package co.edu.uniquindio.pagaFacil.objetos;
+package co.edu.uniquindio.pagaFacil.model;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.*;
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 
 public class RegistroClientesVehiculo {
     private List<Cliente> clientes;
