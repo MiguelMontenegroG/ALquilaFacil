@@ -45,6 +45,7 @@ public class RegistroClientesVehiculo {
         Cliente cliente1 = registro.registrarCliente("Juan Perez", "juan@example.com");
         if (cliente1 != null) {
             System.out.println("Cliente registrado: " + cliente1.getNombre());
+
         } else {
             System.out.println("Error al registrar el cliente.");
         }
