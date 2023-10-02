@@ -6,6 +6,6 @@
 <AnchorPane prefHeight="313.0" prefWidth="407.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.pagaFacil.controller.InicioController">
    <children>
       <Button fx:id="ClienteBT" layoutX="135.0" layoutY="44.0" mnemonicParsing="false" prefHeight="105.0" prefWidth="138.0" text="Cliente" />
-      <Button fx:id="ClienteBT" layoutX="135.0" layoutY="172.0" mnemonicParsing="false" prefHeight="105.0" prefWidth="138.0" text="Vehiculo" />
+      <Button fx:id="VehiculoBT" layoutX="135.0" layoutY="172.0" mnemonicParsing="false" prefHeight="105.0" prefWidth="138.0" text="Vehiculo" />
    </children>
 </AnchorPane>
