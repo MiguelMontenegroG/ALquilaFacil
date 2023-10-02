@@ -1,17 +1,23 @@
 package co.edu.uniquindio.pagaFacil.controller;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
 public class InicioController {
 
-    public void mostrarMensaje(ActionEvent e){
+    @FXML
+    private Button ClienteBT;
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Mensaje");
-        alert.setContentText("Esta es una prueba");
-        alert.show();
+    @FXML
+    private Button VehiculoBT;
 
+    @FXML
+    void onClienteButtonClick(ActionEvent event) {
     }
 
+    @FXML
+    void onVehiculoButtonClick(ActionEvent event) {
+
+    }
 }
