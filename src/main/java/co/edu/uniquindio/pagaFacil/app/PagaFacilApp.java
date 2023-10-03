@@ -10,7 +10,7 @@ public class PagaFacilApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Interfaz/InicioInterfaz.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Interfaz/InterfazGeneral.fxml"));
         Parent parent = loader.load();
 
         Scene scene = new Scene(parent);
