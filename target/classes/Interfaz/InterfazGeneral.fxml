@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="752.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19">
+    <tabs>
+        <Tab text="Registro">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <!-- Datos del Cliente -->
+                        <Label layoutX="25.0" layoutY="25.0" text="Registrar datos del cliente:" />
+                        <Label layoutX="25.0" layoutY="55.0" text="Nombre:" />
+                        <TextField fx:id="nombreClienteTextField" layoutX="25.0" layoutY="72.0" />
+                        <Label layoutX="25.0" layoutY="103.0" text="Cedula:" />
+                        <TextField fx:id="cedulaClienteTextField" layoutX="25.0" layoutY="120.0" />
+                        <Label layoutX="25.0" layoutY="155.0" text="Telefono:" />
+                        <TextField fx:id="telefonoClienteTextField" layoutX="25.0" layoutY="172.0" />
+                        <Label layoutX="25.0" layoutY="210.0" text="Correo:" />
+                        <TextField fx:id="correoClienteTextField" layoutX="25.0" layoutY="227.0" />
+                        <Label layoutX="25.0" layoutY="261.0" text="Ciudad:" />
+                        <TextField fx:id="ciudadClienteTextField" layoutX="25.0" layoutY="278.0" />
+                        <Label layoutX="25.0" layoutY="314.0" text="Dirección:" />
+                        <TextField fx:id="direccionClienteTextField" layoutX="25.0" layoutY="331.0" />
+                        <Button fx:id="registrarClienteButton" layoutX="35.0" layoutY="385.0" mnemonicParsing="false" text="Registrar Cliente" />
+
+                        <!-- Datos del Vehiculo -->
+                        <Label layoutX="251.0" layoutY="25.0" text="Registrar datos del vehiculo" />
+                        <Label layoutX="251.0" layoutY="55.0" text="Vehiculo:" />
+                        <TextField fx:id="vehiculoTextField" layoutX="251.0" layoutY="72.0" />
+                        <Label layoutX="251.0" layoutY="103.0" text="Placa:" />
+                        <TextField fx:id="placaVehiculoTextField" layoutX="251.0" layoutY="120.0" />
+                        <Label layoutX="251.0" layoutY="155.0" text="Marca:" />
+                        <TextField fx:id="marcaVehiculoTextField" layoutX="251.0" layoutY="172.0" />
+                        <Label layoutX="251.0" layoutY="210.0" text="Modelo" />
+                        <TextField fx:id="modeloVehiculoTextField" layoutX="251.0" layoutY="227.0" />
+                        <Label layoutX="251.0" layoutY="261.0" text="Kilometraje:" />
+                        <TextField fx:id="kilometrajeVehiculoTextField" layoutX="251.0" layoutY="278.0" />
+                        <Label layoutX="251.0" layoutY="314.0" text="Valor de alquiler por dia:" />
+                        <TextField fx:id="valorAlquilerVehiculoTextField" layoutX="251.0" layoutY="331.0" />
+                        <Button fx:id="registrarVehiculoButton" layoutX="268.0" layoutY="385.0" mnemonicParsing="false" text="Registrar Vehiculo" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Alquiler">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <!-- Lista de Vehiculos en Alquiler -->
+                        <Label layoutX="26.0" layoutY="24.0" text="Lista de vehiculos en alquiler:" />
+                        <TableView fx:id="vehiculosEnAlquilerTableView" layoutX="26.0" layoutY="59.0" prefHeight="381.0" prefWidth="451.0">
+                            <columns>
+                                <TableColumn fx:id="columnaVehiculo" prefWidth="75.0" text="Vehiculo" />
+                                <TableColumn fx:id="columnaPlaca" prefWidth="75.0" text="Placa" />
+                                <TableColumn fx:id="columnaMarca" prefWidth="75.0" text="Marca" />
+                                <TableColumn fx:id="columnaModelo" prefWidth="75.0" text="Modelo" />
+                                <TableColumn fx:id="columnaKilometraje" prefWidth="75.0" text="Kilometraje" />
+                                <TableColumn fx:id="columnaValorDia" prefWidth="75.0" text="Valor p/dia" />
+                            </columns>
+                        </TableView>
+                        <Label layoutX="497.0" layoutY="59.0" text="Fecha de inicio de alquiler:" />
+                        <DatePicker fx:id="fechaInicioAlquilerDatePicker" layoutX="497.0" layoutY="83.0" />
+                        <Label layoutX="497.0" layoutY="116.0" text="Fecha de final del alquiler de alquiler:" />
+                        <DatePicker fx:id="fechaFinAlquilerDatePicker" layoutX="497.0" layoutY="140.0" />
+                        <Button fx:id="valorarAlquilerButton" layoutX="497.0" layoutY="185.0" mnemonicParsing="false" text="Valorar alquiler" />
+                        <ImageView fx:id="fotoVehiculoImageView" fitHeight="150.0" fitWidth="200.0" layoutX="496.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label layoutX="496.0" layoutY="250.0" text="Foto del vehiculo (seleccionar):" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Administrador">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <!-- Selección de Fecha para Ver Movimientos -->
+                        <Label layoutX="22.0" layoutY="25.0" text="Seleccione una fecha para ver los movimientos:" />
+                        <TableView fx:id="movimientosTableView" layoutX="22.0" layoutY="94.0" prefHeight="348.0" prefWidth="243.0">
+                            <columns>
+                                <TableColumn fx:id="columnaVehiculoMovimiento" prefWidth="129.0" text="Vehiculo" />
+                                <TableColumn fx:id="columnaAlquilerMovimiento" prefWidth="113.0" text="Alquiler" />
+                            </columns>
+                        </TableView>
+                        <DatePicker fx:id="fechaMovimientosDatePicker" layoutX="22.0" layoutY="53.0" />
+                        <Label layoutX="315.0" layoutY="33.0" text="Rango de ganancia entre:" />
+                        <Button fx:id="buscarMovimientosButton" layoutX="213.0" layoutY="53.0" mnemonicParsing="false" text="Buscar" />
+                        <DatePicker fx:id="fechaInicioGananciaDatePicker" layoutX="315.0" layoutY="65.0" />
+                        <Label layoutX="315.0" layoutY="103.0" text="y" />
+                        <DatePicker fx:id="fechaFinGananciaDatePicker" layoutX="315.0" layoutY="131.0" />
+                        <Button fx:id="buscarGananciasButton" layoutX="315.0" layoutY="177.0" mnemonicParsing="false" text="Buscar ganancias en fechas" />
+                        <Label layoutX="318.0" layoutY="268.0" text="La marca de autos más vendida es:" />
+                        <Button fx:id="buscarMarcaMasVendidaButton" layoutX="321.0" layoutY="295.0" mnemonicParsing="false" text="Buscar marca más vendida" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
+
