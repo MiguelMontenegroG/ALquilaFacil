@@ -31,7 +31,7 @@
                         <TextField fx:id="ciudadClienteTextField" layoutX="25.0" layoutY="278.0" />
                         <Label layoutX="25.0" layoutY="314.0" text="Dirección:" />
                         <TextField fx:id="direccionClienteTextField" layoutX="25.0" layoutY="331.0" />
-                        <Button fx:id="registrarClienteButton" layoutX="35.0" layoutY="385.0" mnemonicParsing="false" text="Registrar Cliente" />
+                        <Button fx:id="registrarClienteButton" layoutX="35.0" layoutY="385.0" mnemonicParsing="false" text="Registrar Cliente" onAction="#registrarClienteButton"/>
 
                         <!-- Datos del Vehiculo -->
                         <Label layoutX="251.0" layoutY="25.0" text="Registrar datos del vehiculo" />
@@ -47,7 +47,7 @@
                         <TextField fx:id="kilometrajeVehiculoTextField" layoutX="251.0" layoutY="278.0" />
                         <Label layoutX="251.0" layoutY="314.0" text="Valor de alquiler por dia:" />
                         <TextField fx:id="valorAlquilerVehiculoTextField" layoutX="251.0" layoutY="331.0" />
-                        <Button fx:id="registrarVehiculoButton" layoutX="268.0" layoutY="385.0" mnemonicParsing="false" text="Registrar Vehiculo" />
+                        <Button fx:id="registrarVehiculoButton" layoutX="268.0" layoutY="385.0" mnemonicParsing="false" text="Registrar Vehiculo" onAction="#registrarVehiculoButton"/>
                     </children>
                 </AnchorPane>
             </content>
