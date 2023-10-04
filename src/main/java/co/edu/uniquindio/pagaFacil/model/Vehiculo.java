@@ -9,7 +9,6 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@Builder
 
 public class Vehiculo {
     private String placa;
@@ -30,7 +29,6 @@ public class Vehiculo {
         this.foto = foto;
         this.kilometraje = kilometraje;
         this.precioAlquiler = precioAlquiler;
-        Automatico = automatico;
         this.numeroSillas = numeroSillas;
         this.fechasDisponibles = fechasDisponibles;
     }
@@ -38,8 +36,6 @@ public class Vehiculo {
     public Vehiculo(String placa, String nombre, String marca, String modelo, String foto, Double kilometraje, Double precioAlquiler, Boolean automatico, int numeroSillas) {
 
     }
-
-
 
 
     public void agregarFechaDisponible(LocalDate fecha) {
