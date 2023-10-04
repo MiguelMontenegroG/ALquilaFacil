@@ -19,11 +19,10 @@ public class Vehiculo {
     private String foto;
     private Double kilometraje;
     private Double precioAlquiler;
-    private Boolean Automatico;
     private int numeroSillas;
     private List<LocalDate> fechasDisponibles = new ArrayList<>();
 
-    public Vehiculo(String placa, String nombre, String marca, String modelo, String foto, Double kilometraje, Double precioAlquiler, Boolean automatico, int numeroSillas, List<LocalDate> fechasDisponibles) {
+    public Vehiculo(String placa, String nombre, String marca, String modelo, String foto, Double kilometraje, Double precioAlquiler,  Boolean automatico, int numeroSillas, List<LocalDate> fechasDisponibles ) {
         this.placa = placa;
         this.nombre = nombre;
         this.marca = marca;
@@ -40,6 +39,9 @@ public class Vehiculo {
 
     }
 
+
+
+
     public void agregarFechaDisponible(LocalDate fecha) {
         fechasDisponibles.add(fecha);
     }
@@ -47,6 +49,5 @@ public class Vehiculo {
     public void eliminarFechaDisponible(LocalDate fecha) {
         fechasDisponibles.remove(fecha);
     }
-
 
 }

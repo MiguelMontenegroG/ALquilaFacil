@@ -6,11 +6,14 @@ import co.edu.uniquindio.pagaFacil.exception.InformacionRepetirException;
 import co.edu.uniquindio.pagaFacil.model.AlquilaFacil;
 import co.edu.uniquindio.pagaFacil.model.Cliente;
 import co.edu.uniquindio.pagaFacil.model.Vehiculo;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+
+import java.time.LocalDate;
 
 public class InicioController {
 
@@ -97,6 +100,18 @@ public class InicioController {
         columnaModelo.setCellValueFactory(new PropertyValueFactory<>("modelo"));
         columnaKilometraje.setCellValueFactory(new PropertyValueFactory<>("kilometraje"));
         columnaValorDia.setCellValueFactory(new PropertyValueFactory<>("valorDia"));
+
+        vehiculosEnAlquilerTableView.getSelectionModel().selectedItemProperty().addListener(
+                (ObservableValue<? extends Vehiculo> observable, Vehiculo vehiculoAnterior, Vehiculo vehiculoNuevo) -> {
+                    if (vehiculoNuevo != null) {
+                        Object valorDia = vehiculoNuevo.getPrecioAlquiler();
+                        System.out.println("Vehículo seleccionado: " + vehiculoNuevo.getNombre());
+                    } else {
+                        System.out.println("Ningún vehículo seleccionado.");
+                    }
+                }
+        );
+
     }
 
     private AlquilaFacil alquilaFacil;
@@ -129,6 +144,7 @@ public class InicioController {
     @FXML
     private void registrarVehiculoButton() {
         try {
+            String nombre;
             Vehiculo vehiculo = alquilaFacil.registrarVehiculo(
                     placaVehiculoTextField.getText(),
                     vehiculoTextField.getText(),
@@ -136,6 +152,18 @@ public class InicioController {
                     modeloVehiculoTextField.getText(),
                     Double.parseDouble(kilometrajeVehiculoTextField.getText()),
                     Double.parseDouble(valorAlquilerVehiculoTextField.getText()),
+
+                    String nombre = vehiculoTextField.getText();
+                    String placa = placaVehiculoTextField.getText();
+                    String marca = marcaVehiculoTextField.getText();
+                    String modelo = modeloVehiculoTextField.getText();
+                    double kilometraje = Double.parseDouble(kilometrajeVehiculoTextField.getText());
+                    double valorDia = Double.parseDouble(valorAlquilerVehiculoTextField.getText());
+
+                    Vehiculo vehiculo2 = new Vehiculo(nombre, placa, marca, modelo, kilometraje, valorDia);
+
+
+            vehiculosEnAlquilerTableView.getItems().add(String.valueOf(vehiculo));
             );
 
             mostrarAlerta("Vehículo registrado", "Se ha registrado correctamente el vehículo con placa " + vehiculo.getPlaca(), Alert.AlertType.INFORMATION);
@@ -146,6 +174,35 @@ public class InicioController {
 
     mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+
+    @FXML
+    private void valorarAlquiler() {
+        Vehiculo vehiculoSeleccionado = vehiculosEnAlquilerTableView.getSelectionModel().getSelectedItem();
+
+        if (vehiculoSeleccionado != null) {
+            LocalDate fechaInicio = fechaInicioAlquilerDatePicker.getValue();
+            LocalDate fechaFin = fechaFinAlquilerDatePicker.getValue();
+
+            if (fechaInicio != null && fechaFin != null) {
+                int diasDeAlquiler = (int) ((LocalDate) fechaInicio).until(fechaFin).getDays();
+                double valorPorDia = vehiculoSeleccionado.getPrecioAlquiler();
+                double valorTotal = diasDeAlquiler * valorPorDia;
+
+                mostrarAlerta("Valor de alquiler", "El valor de alquiler de " + diasDeAlquiler + " días es de: $" + valorTotal, Alert.AlertType.INFORMATION);
+            } else {
+                mostrarAlerta("Error", "Selecciona fechas de inicio y fin de alquiler.", Alert.AlertType.ERROR);
+            }
+        } else {
+            mostrarAlerta("Error", "Selecciona un vehículo en la tabla.", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void mostrarAlerta(String titulo, String mensaje, AlertType tipo) {
+        Alert alert = new Alert(tipo);
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
         alert.showAndWait();
